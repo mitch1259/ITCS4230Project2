@@ -3,6 +3,10 @@
   "resourceVersion": "1.6",
   "name": "ITCS-4230-Project-Two",
   "resources": [
+    {"id":{"name":"spr_tester2","path":"sprites/spr_tester2/spr_tester2.yy",},"order":2,},
+    {"id":{"name":"obj_tester2","path":"objects/obj_tester2/obj_tester2.yy",},"order":2,},
+    {"id":{"name":"spr_tester1","path":"sprites/spr_tester1/spr_tester1.yy",},"order":1,},
+    {"id":{"name":"obj_tester1","path":"objects/obj_tester1/obj_tester1.yy",},"order":1,},
     {"id":{"name":"obj_block","path":"objects/obj_block/obj_block.yy",},"order":0,},
     {"id":{"name":"spr_block","path":"sprites/spr_block/spr_block.yy",},"order":0,},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},
