@@ -87,3 +87,70 @@ function horizontal_collision() {
 
 	return false;
 }
+
+
+// Combos
+
+active_combo = ComboState.None;
+current_combo = array_create(2);
+current_combo_idx = 0;
+combo_timeout = 0.10 * game_get_speed(gamespeed_fps);
+
+// Right now combos must be the same length
+enum ComboState {
+	None,
+	Special,
+}
+combo_list = [
+	{combo: ComboState.Special, keys: [ord("G"), ord("H")]},
+	{combo: ComboState.Special, keys: [ord("H"), ord("G")]},
+];
+
+/// @desc Adds a key to the current combo and (re)starts combo timeout
+/// @param {real} key key pressed
+function add_to_combo(key) {
+	if current_combo_idx == array_length(current_combo) {
+		clear_current_combo();
+	}
+
+	current_combo[current_combo_idx] = key;
+	current_combo_idx += 1;
+	alarm[0] = combo_timeout;
+}
+
+/// @desc Clears current combo
+function clear_current_combo() {
+	current_combo_idx = 0;
+}
+
+/// @desc Checks is current combo is valid
+/// @returns {real} valid combo or none if invalid
+function current_combo_validity() {
+	var current_combo_len = array_length(current_combo);
+
+	for (var combo_list_idx = 0; combo_list_idx < array_length(combo_list); combo_list_idx++) {
+		// Iterate through all valid combos
+		var valid_combo = combo_list[combo_list_idx];
+		var is_valid_combo = true;
+
+		//if current_combo_len != array_length(valid_combo.keys) {
+		//	// If combo lengths are not the same
+		//	continue;
+		//}
+
+		for (var i = 0; i < current_combo_len; i++) {
+			// Iterate through combo keys
+			if valid_combo.keys[i] != current_combo[i] {
+				// If current combo doesn't match valid combo
+				is_valid_combo = false;
+				break;
+			}
+		}
+
+		if is_valid_combo {
+			return valid_combo.combo;
+		}
+	}
+
+	return ComboState.None;
+}
