@@ -3,8 +3,10 @@
   "resourceVersion": "1.6",
   "name": "ITCS-4230-Project-Two",
   "resources": [
+    {"id":{"name":"obj_character","path":"objects/obj_character/obj_character.yy",},"order":0,},
     {"id":{"name":"spr_tester2","path":"sprites/spr_tester2/spr_tester2.yy",},"order":2,},
     {"id":{"name":"obj_tester2","path":"objects/obj_tester2/obj_tester2.yy",},"order":2,},
+    {"id":{"name":"obj_playable","path":"objects/obj_playable/obj_playable.yy",},"order":3,},
     {"id":{"name":"spr_tester1","path":"sprites/spr_tester1/spr_tester1.yy",},"order":1,},
     {"id":{"name":"obj_tester1","path":"objects/obj_tester1/obj_tester1.yy",},"order":1,},
     {"id":{"name":"obj_block","path":"objects/obj_block/obj_block.yy",},"order":0,},
@@ -33,6 +35,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Fonts","folderPath":"folders/Fonts.yy","order":7,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Notes","folderPath":"folders/Notes.yy","order":13,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Objects","folderPath":"folders/Objects.yy","order":9,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Characters","folderPath":"folders/Objects/Characters.yy","order":5,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Paths","folderPath":"folders/Paths.yy","order":4,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Rooms","folderPath":"folders/Rooms.yy","order":10,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Scripts","folderPath":"folders/Scripts.yy","order":5,},

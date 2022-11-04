@@ -6,14 +6,14 @@ var is_valid_key = false;
 if keyboard_check_pressed(action1_key) {
 	show_debug_message("Key pressed: Action 1");
 
-	add_to_combo(action1_key);
+	add_to_combo(ComboKey.Action1);
 	is_valid_key = true;
 }
 
 if keyboard_check_pressed(action2_key) {
 	show_debug_message("Key pressed: Action 2");
 
-	add_to_combo(action2_key);
+	add_to_combo(ComboKey.Action2);
 	is_valid_key = true;
 }
 

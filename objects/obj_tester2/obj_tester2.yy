@@ -11,7 +11,10 @@
   "managed": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "obj_playable",
+    "path": "objects/obj_playable/obj_playable.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -27,12 +30,16 @@
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,},
   ],
-  "properties": [
-    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"hp","varType":0,"value":"100","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],},
+  "properties": [],
+  "overriddenProperties": [
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","propertyId":{"name":"jump_key","path":"objects/obj_playable/obj_playable.yy",},"objectId":{"name":"obj_playable","path":"objects/obj_playable/obj_playable.yy",},"value":"vk_up",},
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","propertyId":{"name":"move_left_key","path":"objects/obj_playable/obj_playable.yy",},"objectId":{"name":"obj_playable","path":"objects/obj_playable/obj_playable.yy",},"value":"vk_left",},
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","propertyId":{"name":"move_right_key","path":"objects/obj_playable/obj_playable.yy",},"objectId":{"name":"obj_playable","path":"objects/obj_playable/obj_playable.yy",},"value":"vk_right",},
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","propertyId":{"name":"action1_key","path":"objects/obj_playable/obj_playable.yy",},"objectId":{"name":"obj_playable","path":"objects/obj_playable/obj_playable.yy",},"value":"188",},
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","propertyId":{"name":"action2_key","path":"objects/obj_playable/obj_playable.yy",},"objectId":{"name":"obj_playable","path":"objects/obj_playable/obj_playable.yy",},"value":"190",},
   ],
-  "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "Characters",
+    "path": "folders/Objects/Characters.yy",
   },
 }

@@ -1,4 +1,8 @@
-/// @description Initialize enum and functions
+/// @description Initialize variables and functions
+
+#region Location state
+
+location_state = LocationState.Ground;
 
 enum LocationState {
 	Ground,
@@ -25,20 +29,9 @@ function set_location_state(state) {
 	}
 }
 
-/// @desc Gets x movement from keyboard
-/// @returns {real} x movement
-function get_x_movement() {
-	var x_movement = 0;
+#endregion
 
-	if keyboard_check(move_left_key) {
-		x_movement -= 1;
-	}
-	if keyboard_check(move_right_key) {
-		x_movement += 1;
-	}
-
-	return x_movement;
-}
+#region Collision checks
 
 /// @desc Checks for and fixes `y` on vertical collisions
 /// @returns {bool} Did collide
@@ -88,8 +81,9 @@ function horizontal_collision() {
 	return false;
 }
 
+#endregion
 
-// Combos
+#region Combos
 
 active_combo = ComboState.None;
 current_combo = array_create(2);
@@ -101,9 +95,17 @@ enum ComboState {
 	None,
 	Special,
 }
+enum ComboKey {
+	Up,
+	Left,
+	Right,
+	Action1,
+	Action2,
+}
+
 combo_list = [
-	{combo: ComboState.Special, keys: [ord("G"), ord("H")]},
-	{combo: ComboState.Special, keys: [ord("H"), ord("G")]},
+	{combo: ComboState.Special, keys: [ComboKey.Action1, ComboKey.Action2]},
+	{combo: ComboState.Special, keys: [ComboKey.Action2, ComboKey.Action1]},
 ];
 
 /// @desc Adds a key to the current combo and (re)starts combo timeout
@@ -154,3 +156,5 @@ function current_combo_validity() {
 
 	return ComboState.None;
 }
+
+#endregion
