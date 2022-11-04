@@ -38,6 +38,10 @@
         "ord(\"A\")",
         "vk_left",
       ],"multiselect":false,"filters":[],},
+    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"crouch_key","varType":6,"value":"ord(\"S\")","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[
+        "ord(\"S\")",
+        "vk_down",
+      ],"multiselect":false,"filters":[],},
     {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"move_right_key","varType":6,"value":"ord(\"D\")","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[
         "ord(\"D\")",
         "vk_right",
@@ -49,6 +53,10 @@
     {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"action2_key","varType":6,"value":"ord(\"H\")","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[
         "ord(\"H\")",
         "190",
+      ],"multiselect":false,"filters":[],},
+    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"action3_key","varType":6,"value":"ord(\"J\")","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[
+        "ord(\"J\")",
+        "191",
       ],"multiselect":false,"filters":[],},
   ],
   "overriddenProperties": [],

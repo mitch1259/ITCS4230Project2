@@ -37,6 +37,8 @@
     {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","propertyId":{"name":"move_right_key","path":"objects/obj_playable/obj_playable.yy",},"objectId":{"name":"obj_playable","path":"objects/obj_playable/obj_playable.yy",},"value":"vk_right",},
     {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","propertyId":{"name":"action1_key","path":"objects/obj_playable/obj_playable.yy",},"objectId":{"name":"obj_playable","path":"objects/obj_playable/obj_playable.yy",},"value":"188",},
     {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","propertyId":{"name":"action2_key","path":"objects/obj_playable/obj_playable.yy",},"objectId":{"name":"obj_playable","path":"objects/obj_playable/obj_playable.yy",},"value":"190",},
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","propertyId":{"name":"crouch_key","path":"objects/obj_playable/obj_playable.yy",},"objectId":{"name":"obj_playable","path":"objects/obj_playable/obj_playable.yy",},"value":"vk_down",},
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","propertyId":{"name":"action3_key","path":"objects/obj_playable/obj_playable.yy",},"objectId":{"name":"obj_playable","path":"objects/obj_playable/obj_playable.yy",},"value":"191",},
   ],
   "parent": {
     "name": "Characters",

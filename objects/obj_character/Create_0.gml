@@ -101,6 +101,7 @@ enum ComboKey {
 	Right,
 	Action1,
 	Action2,
+	Action3,
 }
 
 combo_list = [
