@@ -90,11 +90,11 @@ function horizontal_collision() {
 active_combo = ComboState.None;
 current_combo = array_create(2);
 current_combo_idx = 0;
-combo_timeout = 0.10 * game_get_speed(gamespeed_fps);
+combo_timeout = 0.25 * game_get_speed(gamespeed_fps);
 
-// Right now combos must be the same length
 enum ComboState {
 	None,
+	Dash,
 	Special,
 }
 enum ComboKey {
@@ -106,7 +106,10 @@ enum ComboKey {
 	Action3,
 }
 
+// Right now combos must be the same length
 combo_list = [
+	{combo: ComboState.Dash, keys: [ComboKey.Left, ComboKey.Left]},
+	{combo: ComboState.Dash, keys: [ComboKey.Right, ComboKey.Right]},
 	{combo: ComboState.Special, keys: [ComboKey.Action1, ComboKey.Action2]},
 	{combo: ComboState.Special, keys: [ComboKey.Action2, ComboKey.Action1]},
 ];
@@ -126,6 +129,7 @@ function add_to_combo(key) {
 /// @desc Clears current combo
 function clear_current_combo() {
 	current_combo_idx = 0;
+	alarm[0] = -1;
 }
 
 /// @desc Checks is current combo is valid
