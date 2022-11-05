@@ -166,6 +166,16 @@ function current_combo_validity() {
 
 #endregion
 
+#region Actions
+
+/// @desc Run dash combo
+function dash() {
+	hspeed = sign(hspeed) * move_speed * 7;
+	horizontal_collision();
+}
+
+#endregion
+
 #region Hit and Hurt
 
 function hurt(damage) {

@@ -49,6 +49,7 @@ if is_valid_key and current_combo_idx == array_length(current_combo) {
 	if active_combo != ComboState.None {
 		// If valid combo
 		clear_current_combo();
+		hspeed = get_x_movement();
 	}
 
 	switch active_combo {
@@ -56,8 +57,12 @@ if is_valid_key and current_combo_idx == array_length(current_combo) {
 			show_debug_message("Active combo: Special");
 			break;
 		case ComboState.Dash:
-			show_debug_message("Active combo: Dash");
-			alarm[0] = 0.5 * game_get_speed(gamespeed_fps);
+			if location_state == LocationState.Ground {
+				show_debug_message("Active combo: Dash");
+				alarm[0] = 0.10 * game_get_speed(gamespeed_fps);
+			} else {
+				active_combo = ComboState.None;
+			}
 			break;
 	}
 }

@@ -28,7 +28,7 @@ switch active_combo {
 		}
 		break;
 	case ComboState.Dash:
-		alarm[0] = 1; // Instantly finish (until implemented)
+		dash();
 		break;
 	case ComboState.Special:
 		alarm[0] = 1; // Instantly finish (until implemented)
