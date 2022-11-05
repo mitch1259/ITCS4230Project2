@@ -44,10 +44,6 @@ function do_nothing() {}
 function move_towards() {
 	var x_movement = sign(opponent.x - x);
 
-	if x_movement == 0 {
-		x_movement = -1;
-	}
-
 	hspeed = x_movement * move_speed;
 }
 
@@ -56,10 +52,20 @@ function move_away() {
 	var x_movement = sign(x - opponent.x);
 
 	if x_movement == 0 {
+		// If at the same location as the opponent, move right
 		x_movement = 1;
 	}
 
 	hspeed = x_movement * move_speed;
+
+	if abs(x - opponent.x) <= 256 and place_meeting(x + hspeed, y, obj_block) {
+		// If trapped between player and wall, do dash action
+		if location_state == LocationState.Ground {
+			hspeed = -x_movement;
+			active_combo = ComboState.Dash;
+			alarm[0] = 0.10 * game_get_speed(gamespeed_fps);
+		}
+	}
 }
 
 set_action_state(ActionState.DoNothing);
