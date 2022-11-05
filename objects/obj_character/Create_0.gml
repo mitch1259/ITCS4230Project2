@@ -1,5 +1,7 @@
 /// @description Initialize variables and functions
 
+opponent = noone;
+
 #region Location state
 
 location_state = LocationState.Ground;

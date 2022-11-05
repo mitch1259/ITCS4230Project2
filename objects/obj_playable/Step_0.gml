@@ -1,4 +1,6 @@
-/// @description Move
+/// @description Face opponent and move
+
+event_inherited();
 
 if location_state == LocationState.Ground {
 	// Set speed
