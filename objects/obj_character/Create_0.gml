@@ -161,3 +161,16 @@ function current_combo_validity() {
 }
 
 #endregion
+
+#region Hit and Hurt
+
+function hurt(damage) {
+	hp -= damage;
+}
+
+function hit(damage) {
+	opponent.hurt(damage);
+	energy += energy_gain;
+}
+
+#endregion
