@@ -44,25 +44,15 @@ if keyboard_check_pressed(move_right_key) {
 
 if is_valid_key and current_combo_idx == array_length(current_combo) {
 	// If valid key and current combo is correct length
-	active_combo = current_combo_validity();
+	var combo = current_combo_validity();
 
-	if active_combo != ComboState.None {
-		// If valid combo
-		clear_current_combo();
-		hspeed = get_x_movement();
+	if combo == ComboState.None {
+		// If invalid combo
+		exit;
 	}
 
-	switch active_combo {
-		case ComboState.Special:
-			show_debug_message("Active combo: Special");
-			break;
-		case ComboState.Dash:
-			if location_state == LocationState.Ground {
-				show_debug_message("Active combo: Dash");
-				alarm[0] = 0.10 * game_get_speed(gamespeed_fps);
-			} else {
-				active_combo = ComboState.None;
-			}
-			break;
-	}
+	clear_current_combo();
+
+	hspeed = get_x_movement();
+	set_active_combo(combo);
 }

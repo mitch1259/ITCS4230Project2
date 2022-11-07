@@ -60,11 +60,8 @@ function move_away() {
 
 	if abs(x - opponent.x) <= 256 and place_meeting(x + hspeed, y, obj_block) {
 		// If trapped between player and wall, do dash action
-		if location_state == LocationState.Ground {
-			hspeed = -x_movement;
-			active_combo = ComboState.Dash;
-			alarm[0] = 0.10 * game_get_speed(gamespeed_fps);
-		}
+		hspeed = -hspeed;
+		set_active_combo(ComboState.Dash);
 	}
 }
 

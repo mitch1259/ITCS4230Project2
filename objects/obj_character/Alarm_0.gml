@@ -7,5 +7,5 @@ if active_combo == ComboState.None {
 } else {
 	show_debug_message("Combo finished");
 
-	active_combo = ComboState.None;
+	set_active_combo(ComboState.None);
 }

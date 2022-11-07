@@ -164,6 +164,40 @@ function current_combo_validity() {
 	return ComboState.None;
 }
 
+/// @desc Transition between combo states
+/// @param {real} state ComboState
+function set_active_combo(state) {
+	// Nested switches can be read as "Switch from `active_combo` to `state`"
+	switch active_combo {
+		case ComboState.Dash:
+			switch state {
+				case ComboState.None:
+					if location_state == LocationState.Air {
+						gravity = gravity_force;
+					}
+					break;
+			}
+			break;
+
+		case ComboState.None:
+			switch state {
+				case ComboState.Dash:
+					show_debug_message("Active combo: Dash");
+					vspeed = 0;
+					gravity = 0;
+					alarm[0] = 0.10 * game_get_speed(gamespeed_fps);
+					break;
+
+				case ComboState.Special:
+					show_debug_message("Active combo: Special");
+					break;
+			}
+			break;
+	}
+
+	active_combo = state;
+}
+
 #endregion
 
 #region Actions
