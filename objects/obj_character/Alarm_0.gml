@@ -1,11 +1,5 @@
-/// @description Combo timed out or finished
+/// @description Character action finished
 
-if active_combo == ComboState.None {
-	show_debug_message("Combo timed out");
+show_debug_message("Action finished");
 
-	clear_current_combo();
-} else {
-	show_debug_message("Combo finished");
-
-	set_active_combo(ComboState.None);
-}
+set_character_action(CharacterAction.None);

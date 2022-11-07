@@ -85,93 +85,24 @@ function horizontal_collision() {
 
 #endregion
 
-#region Combos
+#region Character action
 
-active_combo = ComboState.None;
-current_combo = array_create(2);
-current_combo_idx = 0;
-combo_timeout = 0.25 * game_get_speed(gamespeed_fps);
+character_action = CharacterAction.None;
 
-enum ComboState {
+enum CharacterAction {
 	None,
 	Dash,
 	Special,
 }
-enum ComboKey {
-	Up,
-	Left,
-	Right,
-	Action1,
-	Action2,
-	Action3,
-}
 
-// Right now combos must be the same length
-combo_list = [
-	{combo: ComboState.Dash, keys: [ComboKey.Left, ComboKey.Left]},
-	{combo: ComboState.Dash, keys: [ComboKey.Right, ComboKey.Right]},
-	{combo: ComboState.Special, keys: [ComboKey.Action1, ComboKey.Action2]},
-	{combo: ComboState.Special, keys: [ComboKey.Action2, ComboKey.Action1]},
-];
-
-/// @desc Adds a key to the current combo and (re)starts combo timeout
-/// @param {real} key key pressed
-function add_to_combo(key) {
-	if current_combo_idx == array_length(current_combo) {
-		clear_current_combo();
-	}
-
-	current_combo[current_combo_idx] = key;
-	current_combo_idx += 1;
-	alarm[0] = combo_timeout;
-}
-
-/// @desc Clears current combo
-function clear_current_combo() {
-	current_combo_idx = 0;
-	alarm[0] = -1;
-}
-
-/// @desc Checks is current combo is valid
-/// @returns {real} valid combo or none if invalid
-function current_combo_validity() {
-	var current_combo_len = array_length(current_combo);
-
-	for (var combo_list_idx = 0; combo_list_idx < array_length(combo_list); combo_list_idx++) {
-		// Iterate through all valid combos
-		var valid_combo = combo_list[combo_list_idx];
-		var is_valid_combo = true;
-
-		//if current_combo_len != array_length(valid_combo.keys) {
-		//	// If combo lengths are not the same
-		//	continue;
-		//}
-
-		for (var i = 0; i < current_combo_len; i++) {
-			// Iterate through combo keys
-			if valid_combo.keys[i] != current_combo[i] {
-				// If current combo doesn't match valid combo
-				is_valid_combo = false;
-				break;
-			}
-		}
-
-		if is_valid_combo {
-			return valid_combo.combo;
-		}
-	}
-
-	return ComboState.None;
-}
-
-/// @desc Transition between combo states
-/// @param {real} state ComboState
-function set_active_combo(state) {
-	// Nested switches can be read as "Switch from `active_combo` to `state`"
-	switch active_combo {
-		case ComboState.Dash:
-			switch state {
-				case ComboState.None:
+/// @desc Transition between character actions
+/// @param {real} new_action CharacterAction
+function set_character_action(new_action) {
+	// Nested switches can be read as "Switch from `character_action` to `new_action`"
+	switch character_action {
+		case CharacterAction.Dash:
+			switch new_action {
+				case CharacterAction.None:
 					if location_state == LocationState.Air {
 						gravity = gravity_force;
 					}
@@ -179,33 +110,38 @@ function set_active_combo(state) {
 			}
 			break;
 
-		case ComboState.None:
-			switch state {
-				case ComboState.Dash:
+		case CharacterAction.None:
+			switch new_action {
+				case CharacterAction.Dash:
 					show_debug_message("Active combo: Dash");
 					vspeed = 0;
 					gravity = 0;
 					alarm[0] = 0.10 * game_get_speed(gamespeed_fps);
 					break;
 
-				case ComboState.Special:
+				case CharacterAction.Special:
 					show_debug_message("Active combo: Special");
 					break;
 			}
 			break;
 	}
 
-	active_combo = state;
+	character_action = new_action;
 }
 
 #endregion
 
-#region Actions
+#region Character action: functions
 
-/// @desc Run dash combo
+/// @desc Run dash action
 function dash() {
 	hspeed = sign(hspeed) * move_speed * 7;
 	horizontal_collision();
+}
+
+/// @desc Run special action
+function special() {
+	alarm[0] = 1; // Instantly finish (until implemented)
 }
 
 #endregion

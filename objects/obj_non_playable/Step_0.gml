@@ -2,14 +2,21 @@
 
 event_inherited();
 
-switch active_combo {
-	case ComboState.None:
-		move();
+if character_action != CharacterAction.None {
+	exit;
+}
 
-		horizontal_collision();
-		vertical_collision();
+switch ai_action {
+	case AiAction.DoNothing:
+		do_nothing();
 		break;
-	case ComboState.Dash:
-		dash();
+	case AiAction.MoveAway:
+		move_away();
+		break;
+	case AiAction.MoveTowards:
+		move_towards();
 		break;
 }
+
+horizontal_collision();
+vertical_collision();

@@ -1,7 +1,6 @@
 /// @description Check combo
 
-if active_combo != ComboState.None {
-	// If using combo, don't check for another combo
+if character_action != CharacterAction.None {
 	exit;
 }
 
@@ -44,9 +43,9 @@ if keyboard_check_pressed(move_right_key) {
 
 if is_valid_key and current_combo_idx == array_length(current_combo) {
 	// If valid key and current combo is correct length
-	var combo = current_combo_validity();
+	var action = current_combo_validity();
 
-	if combo == ComboState.None {
+	if action == CharacterAction.None {
 		// If invalid combo
 		exit;
 	}
@@ -54,5 +53,5 @@ if is_valid_key and current_combo_idx == array_length(current_combo) {
 	clear_current_combo();
 
 	hspeed = get_x_movement();
-	set_active_combo(combo);
+	set_character_action(action);
 }

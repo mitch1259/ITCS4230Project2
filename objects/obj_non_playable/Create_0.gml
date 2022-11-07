@@ -4,38 +4,35 @@ event_inherited();
 
 alarm[1] = 1.0 * game_get_speed(gamespeed_fps);
 
-#region Action state
+#region AI action
 
-action_state = ActionState.DoNothing;
+ai_action = AiAction.DoNothing;
 
-enum ActionState {
+enum AiAction {
 	DoNothing,
 	MoveTowards,
 	MoveAway,
 }
 
 /// @desc Transition between action states
-/// @param {real} state ActionState
-function set_action_state(state) {
-	switch state {
-		case ActionState.DoNothing:
-			move = do_nothing;
+/// @param {real} new_action ActionState
+function set_ai_action(new_action) {
+	switch new_action {
+		case AiAction.DoNothing:
 			hspeed = 0;
 			break;
-		case ActionState.MoveTowards:
-			move = move_towards;
+		case AiAction.MoveTowards:
 			break;
-		case ActionState.MoveAway:
-			move = move_away;
+		case AiAction.MoveAway:
 			break;
 	}
 
-	action_state = state;
+	ai_action = new_action;
 }
 
 #endregion
 
-#region Movement
+#region AI action: Movement
 
 /// @desc Do nothing
 function do_nothing() {}
@@ -61,10 +58,8 @@ function move_away() {
 	if abs(x - opponent.x) <= 256 and place_meeting(x + hspeed, y, obj_block) {
 		// If trapped between player and wall, do dash action
 		hspeed = -hspeed;
-		set_active_combo(ComboState.Dash);
+		set_character_action(CharacterAction.Dash);
 	}
 }
-
-set_action_state(ActionState.DoNothing);
 
 #endregion
