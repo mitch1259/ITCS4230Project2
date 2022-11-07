@@ -38,10 +38,10 @@ function set_location_state(state) {
 /// @desc Checks for and fixes `y` on vertical collisions
 /// @returns {bool} Did collide
 function vertical_collision() {
-	var collision = instance_place(x , y + vspeed, obj_block);
+	var collision = instance_place(x , y + vspeed + gravity, obj_block);
 
 	if collision != noone {
-		if vspeed > 0 {
+		if (vspeed + gravity) > 0 {
 			show_debug_message("Collision: Floor");
 
 			y = collision.bbox_top - (bbox_bottom - y);
@@ -114,9 +114,13 @@ function set_character_action(new_action) {
 			switch new_action {
 				case CharacterAction.Dash:
 					show_debug_message("Active combo: Dash");
+
 					hspeed = sign(hspeed) * dash_speed;
 					vspeed = 0;
 					gravity = 0;
+
+					horizontal_collision();
+
 					alarm[0] = dash_time;
 					break;
 
