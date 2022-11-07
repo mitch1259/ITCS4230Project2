@@ -6,6 +6,7 @@ event_inherited();
 
 current_combo = array_create(2);
 current_combo_idx = 0;
+combo_timeout = combo_timeout * game_get_speed(gamespeed_fps);
 
 enum ComboKey {
 	Up,
@@ -33,7 +34,7 @@ function add_to_combo(key) {
 
 	current_combo[current_combo_idx] = key;
 	current_combo_idx += 1;
-	alarm[1] = combo_timeout * game_get_speed(gamespeed_fps);
+	alarm[1] = combo_timeout;
 }
 
 /// @desc Clears current combo

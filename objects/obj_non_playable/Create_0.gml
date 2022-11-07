@@ -55,7 +55,7 @@ function move_away() {
 
 	hspeed = x_movement * move_speed;
 
-	if abs(x - opponent.x) <= 256 and place_meeting(x + hspeed, y, obj_block) {
+	if abs(x - opponent.x) < (dash_speed * dash_time) and place_meeting(x + hspeed, y, obj_block) {
 		// If trapped between player and wall, do dash action
 		hspeed = -hspeed;
 		set_character_action(CharacterAction.Dash);
