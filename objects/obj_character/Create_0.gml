@@ -114,9 +114,10 @@ function set_character_action(new_action) {
 			switch new_action {
 				case CharacterAction.Dash:
 					show_debug_message("Active combo: Dash");
+					hspeed = sign(hspeed) * dash_speed;
 					vspeed = 0;
 					gravity = 0;
-					alarm[0] = 0.10 * game_get_speed(gamespeed_fps);
+					alarm[0] = dash_time;
 					break;
 
 				case CharacterAction.Special:
@@ -131,11 +132,12 @@ function set_character_action(new_action) {
 
 #endregion
 
-#region Character action: functions
+#region Character action: implementation
+
+dash_time = dash_time * game_get_speed(gamespeed_fps);
 
 /// @desc Run dash action
 function dash() {
-	hspeed = sign(hspeed) * move_speed * 7;
 	horizontal_collision();
 }
 
