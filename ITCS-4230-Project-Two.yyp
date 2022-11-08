@@ -27,6 +27,7 @@
     {"id":{"name":"obj_block","path":"objects/obj_block/obj_block.yy",},"order":0,},
     {"id":{"name":"spr_paulinaBlock","path":"sprites/spr_paulinaBlock/spr_paulinaBlock.yy",},"order":0,},
     {"id":{"name":"obj_controller","path":"objects/obj_controller/obj_controller.yy",},"order":3,},
+    {"id":{"name":"scr_get_character_data","path":"scripts/scr_get_character_data/scr_get_character_data.yy",},"order":0,},
     {"id":{"name":"spr_block","path":"sprites/spr_block/spr_block.yy",},"order":0,},
     {"id":{"name":"spr_seanK","path":"sprites/spr_seanK/spr_seanK.yy",},"order":2,},
     {"id":{"name":"spr_lunaWalk","path":"sprites/spr_lunaWalk/spr_lunaWalk.yy",},"order":4,},
