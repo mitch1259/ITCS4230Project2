@@ -154,10 +154,14 @@ function special() {
 
 #region Hit and Hurt
 
+/// @desc Deal damage to `self`
+/// @param {real} damage damage dealt
 function hurt(damage) {
 	hp -= damage;
 }
 
+/// @desc Deal damage to opponent and increase energy
+/// @param {real} damage damage dealt
 function hit(damage) {
 	opponent.hurt(damage);
 	energy += energy_gain;
