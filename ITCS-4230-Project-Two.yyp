@@ -13,6 +13,7 @@
     {"id":{"name":"spr_lunaDash","path":"sprites/spr_lunaDash/spr_lunaDash.yy",},"order":1,},
     {"id":{"name":"spr_tester2","path":"sprites/spr_tester2/spr_tester2.yy",},"order":2,},
     {"id":{"name":"spr_lunaK","path":"sprites/spr_lunaK/spr_lunaK.yy",},"order":2,},
+    {"id":{"name":"spr_test_background","path":"sprites/spr_test_background/spr_test_background.yy",},"order":19,},
     {"id":{"name":"obj_tester2","path":"objects/obj_tester2/obj_tester2.yy",},"order":2,},
     {"id":{"name":"spr_seanWalk","path":"sprites/spr_seanWalk/spr_seanWalk.yy",},"order":4,},
     {"id":{"name":"spr_paulinaDash","path":"sprites/spr_paulinaDash/spr_paulinaDash.yy",},"order":1,},
