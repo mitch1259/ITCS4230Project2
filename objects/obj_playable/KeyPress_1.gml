@@ -1,6 +1,6 @@
 /// @description Check combo
 
-if character_action != CharacterAction.None {
+if character_action != CharacterAction.None and character_action != CharacterAction.Punch and character_action != CharacterAction.Kick {
 	exit;
 }
 
@@ -11,12 +11,20 @@ var is_valid_key = false;
 if keyboard_check_pressed(action1_key) {
 	show_debug_message("Key pressed: Action 1");
 
+	if character_action != CharacterAction.Punch {
+		set_character_action(CharacterAction.Punch);
+	}
+
 	add_to_combo(ComboKey.Action1);
 	is_valid_key = true;
 }
 
 if keyboard_check_pressed(action2_key) {
 	show_debug_message("Key pressed: Action 2");
+
+	if character_action != CharacterAction.Kick {
+		set_character_action(CharacterAction.Kick);
+	}
 
 	add_to_combo(ComboKey.Action2);
 	is_valid_key = true;

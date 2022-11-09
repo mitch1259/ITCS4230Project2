@@ -91,6 +91,8 @@ character_action = CharacterAction.None;
 
 enum CharacterAction {
 	None,
+	Punch,
+	Kick,
 	Dash,
 	Special,
 }
@@ -110,8 +112,42 @@ function set_character_action(new_action) {
 			}
 			break;
 
+		case CharacterAction.Punch:
+		case CharacterAction.Kick:
+			switch new_action {
+				case CharacterAction.Special:
+					show_debug_message("Active combo: Special");
+
+					if instance_exists(hitbox) {
+						instance_destroy(hitbox);
+					}
+					hitbox = noone;
+					break;
+				}
+			break;
+
 		case CharacterAction.None:
 			switch new_action {
+				case CharacterAction.Punch:
+					show_debug_message("Active action: Punch");
+
+					hspeed = 0;
+
+					vertical_collision();
+
+					alarm[0] = punch_total_time;
+					break;
+
+				case CharacterAction.Kick:
+					show_debug_message("Active action: Kick");
+
+					hspeed = 0;
+
+					vertical_collision();
+
+					alarm[0] = kick_total_time;
+					break;
+
 				case CharacterAction.Dash:
 					show_debug_message("Active combo: Dash");
 
@@ -140,6 +176,59 @@ function set_character_action(new_action) {
 
 dash_time = dash_time * game_get_speed(gamespeed_fps);
 
+punch_start_up_time = punch_start_up_time * game_get_speed(gamespeed_fps);
+punch_active_time = punch_active_time * game_get_speed(gamespeed_fps);
+punch_recovery_time = punch_recovery_time * game_get_speed(gamespeed_fps);
+punch_total_time = punch_start_up_time + punch_active_time + punch_recovery_time;
+
+kick_start_up_time = kick_start_up_time * game_get_speed(gamespeed_fps);
+kick_active_time = kick_active_time * game_get_speed(gamespeed_fps);
+kick_recovery_time = kick_recovery_time * game_get_speed(gamespeed_fps);
+kick_total_time = kick_start_up_time + kick_active_time + kick_recovery_time;
+
+punch_stun_time = punch_stun_time * game_get_speed(gamespeed_fps);
+kick_stun_time = kick_stun_time * game_get_speed(gamespeed_fps);
+
+/// @desc Run punch action
+function punch() {
+	vertical_collision();
+
+	var time_elapsed = punch_total_time - alarm[0];
+
+	if time_elapsed == ceil(punch_start_up_time) {
+		// If start up is finished, activate punch
+		hitbox = instance_create_layer(0, 0, "Instances", obj_hitbox,
+			{parent: id, damage: punch_damage, x_offset: punch_x_offset, y_offset: punch_y_offset, height: punch_height, width: punch_width}
+		);
+	} else if time_elapsed == ceil(punch_start_up_time + punch_active_time) {
+		// If punch is finished and player is in recovery
+		if instance_exists(hitbox) {
+			instance_destroy(hitbox);
+		}
+		hitbox = noone;
+	}
+}
+
+/// @desc Run kick action
+function kick() {
+	vertical_collision();
+
+	var time_elapsed = kick_total_time - alarm[0];
+
+	if time_elapsed == ceil(kick_start_up_time) {
+		// If start up is finished, activate kick
+		hitbox = instance_create_layer(0, 0, "Instances", obj_hitbox,
+			{parent: id, damage: kick_damage, x_offset: kick_x_offset, y_offset: kick_y_offset, height: kick_height, width: kick_width}
+		);
+	} else if time_elapsed == ceil(kick_start_up_time + kick_active_time) {
+		// If kick is finished and player is in recovery
+		if instance_exists(hitbox) {
+			instance_destroy(hitbox);
+		}
+		hitbox = noone;
+	}
+}
+
 /// @desc Run dash action
 function dash() {
 	horizontal_collision();
@@ -153,6 +242,8 @@ function special() {
 #endregion
 
 #region Hit and Hurt
+
+hitbox = noone;
 
 /// @desc Deal damage to `self`
 /// @param {real} damage damage dealt
