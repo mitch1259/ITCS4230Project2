@@ -1,4 +1,6 @@
 /// @description Face opponent and do character action
+if hp <= 0 then instance_destroy()
+
 
 if character_action == CharacterAction.None {
 	if x < opponent.x {
