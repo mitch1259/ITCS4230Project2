@@ -9,7 +9,7 @@ var is_valid_key = false;
 #region Add to combo if valid
 
 if keyboard_check_pressed(action1_key) {
-	show_debug_message("Key pressed: Action 1");
+	//show_debug_message("Key pressed: Action 1");
 
 	if character_action != CharacterAction.Punch {
 		set_character_action(CharacterAction.Punch);
@@ -20,7 +20,7 @@ if keyboard_check_pressed(action1_key) {
 }
 
 if keyboard_check_pressed(action2_key) {
-	show_debug_message("Key pressed: Action 2");
+	//show_debug_message("Key pressed: Action 2");
 
 	if character_action != CharacterAction.Kick {
 		set_character_action(CharacterAction.Kick);
@@ -31,7 +31,7 @@ if keyboard_check_pressed(action2_key) {
 }
 
 if keyboard_check_pressed(action3_key) {
-	show_debug_message("Key pressed: Action 3");
+	//show_debug_message("Key pressed: Action 3");
 
 	add_to_combo(ComboKey.Action3);
 	is_valid_key = true;

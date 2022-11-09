@@ -16,14 +16,14 @@ enum LocationState {
 function set_location_state(state) {
 	switch state {
 		case LocationState.Ground:
-			show_debug_message("Location state: Ground");
+			//show_debug_message("Location state: Ground");
 
 			vspeed = 0;
 			gravity = 0;
 			location_state = LocationState.Ground;
 			break;
 		case LocationState.Air:
-			show_debug_message("Location state: Air");
+			//show_debug_message("Location state: Air");
 
 			gravity = gravity_force;
 			location_state = LocationState.Air;
@@ -42,12 +42,12 @@ function vertical_collision() {
 
 	if collision != noone {
 		if (vspeed + gravity) > 0 {
-			show_debug_message("Collision: Floor");
+			//show_debug_message("Collision: Floor");
 
 			y = collision.bbox_top - (bbox_bottom - y);
 			set_location_state(LocationState.Ground);
 		} else {
-			show_debug_message("Collision: Ceiling");
+			//show_debug_message("Collision: Ceiling");
 
 			y = collision.bbox_bottom - (bbox_top - y);
 			vspeed = 0;
@@ -66,11 +66,11 @@ function horizontal_collision() {
 
 	if collision != noone {
 		if hspeed > 0 {
-			show_debug_message("Collision: Right Wall");
+			//show_debug_message("Collision: Right Wall");
 
 			x = collision.bbox_left - (bbox_right - x);
 		} else {
-			show_debug_message("Collision: Left Wall");
+			//show_debug_message("Collision: Left Wall");
 
 			x = collision.bbox_right - (bbox_left - x);
 		}
@@ -116,7 +116,7 @@ function set_character_action(new_action) {
 		case CharacterAction.Kick:
 			switch new_action {
 				case CharacterAction.Special:
-					show_debug_message("Active combo: Special");
+					show_debug_message("Active action: Special");
 
 					if instance_exists(hitbox) {
 						instance_destroy(hitbox);
@@ -149,7 +149,7 @@ function set_character_action(new_action) {
 					break;
 
 				case CharacterAction.Dash:
-					show_debug_message("Active combo: Dash");
+					show_debug_message("Active action: Dash");
 
 					hspeed = sign(hspeed) * dash_speed;
 					vspeed = 0;
@@ -161,7 +161,7 @@ function set_character_action(new_action) {
 					break;
 
 				case CharacterAction.Special:
-					show_debug_message("Active combo: Special");
+					show_debug_message("Active action: Special");
 					break;
 			}
 			break;
