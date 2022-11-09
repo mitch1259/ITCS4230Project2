@@ -48,7 +48,7 @@ function clear_current_combo() {
 function current_combo_validity() {
 	var current_combo_len = array_length(current_combo);
 
-	for (var all_combos_idx = 0; all_combos_idx < array_length(all_combos); combo_list_idx++) {
+	for (var all_combos_idx = 0; all_combos_idx < array_length(all_combos); all_combos_idx++) {
 		// Iterate through all valid combos
 		var valid_combo = all_combos[all_combos_idx];
 		var is_valid_combo = true;
