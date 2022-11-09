@@ -35,7 +35,7 @@ if keyboard_check_pressed(move_left_key) {
 }
 
 if keyboard_check_pressed(move_right_key) {
-	add_to_combo(ComboKey.Left);
+	add_to_combo(ComboKey.Right);
 	is_valid_key = true;
 }
 
