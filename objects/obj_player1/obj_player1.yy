@@ -1,11 +1,8 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_tester1",
-  "spriteId": {
-    "name": "spr_tester1",
-    "path": "sprites/spr_tester1/spr_tester1.yy",
-  },
+  "name": "obj_player1",
+  "spriteId": null,
   "solid": false,
   "visible": true,
   "managed": true,

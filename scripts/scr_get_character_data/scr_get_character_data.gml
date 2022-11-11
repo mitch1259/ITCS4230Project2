@@ -11,7 +11,11 @@ enum CharacterName {
 function get_character_data(character) {
 	switch character {
 		case CharacterName.Luna:
-			return {};
+			return {
+				sprite_idle: spr_lunaStand,
+				sprite_punch: spr_lunaP,
+				sprite_kick: spr_lunaK,
+			};
 		case CharacterName.Sean:
 			return {};
 		case CharacterName.Paulina:

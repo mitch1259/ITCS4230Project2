@@ -2,6 +2,9 @@
 
 opponent = noone;
 
+sprite_index = sprite_idle;
+mask_index = sprite_idle;
+
 #region Location state
 
 location_state = LocationState.Ground;
@@ -115,6 +118,10 @@ function set_character_action(new_action) {
 		case CharacterAction.Punch:
 		case CharacterAction.Kick:
 			switch new_action {
+				case CharacterAction.None:
+					sprite_index = sprite_idle;
+					break;
+
 				case CharacterAction.Special:
 					show_debug_message("Active action: Special");
 
@@ -131,6 +138,7 @@ function set_character_action(new_action) {
 				case CharacterAction.Punch:
 					show_debug_message("Active action: Punch");
 
+					sprite_index = sprite_punch;
 					hspeed = 0;
 
 					vertical_collision();
@@ -141,6 +149,7 @@ function set_character_action(new_action) {
 				case CharacterAction.Kick:
 					show_debug_message("Active action: Kick");
 
+					sprite_index = sprite_kick;
 					hspeed = 0;
 
 					vertical_collision();

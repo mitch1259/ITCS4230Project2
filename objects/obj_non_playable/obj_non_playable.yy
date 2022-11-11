@@ -2,10 +2,7 @@
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
   "name": "obj_non_playable",
-  "spriteId": {
-    "name": "spr_tester2",
-    "path": "sprites/spr_tester2/spr_tester2.yy",
-  },
+  "spriteId": null,
   "solid": false,
   "visible": true,
   "managed": true,
