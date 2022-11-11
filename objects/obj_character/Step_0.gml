@@ -1,5 +1,5 @@
 /// @description Face opponent and do character action
-if hp <= 0 then instance_destroy()
+if hp <= 0 then room_goto_next()
 
 
 if character_action == CharacterAction.None {

@@ -29,6 +29,7 @@
     {"id":{"name":"obj_player1","path":"objects/obj_player1/obj_player1.yy",},"order":1,},
     {"id":{"name":"obj_block","path":"objects/obj_block/obj_block.yy",},"order":0,},
     {"id":{"name":"spr_lunaStand","path":"sprites/spr_lunaStand/spr_lunaStand.yy",},"order":6,},
+    {"id":{"name":"Room2","path":"rooms/Room2/Room2.yy",},"order":1,},
     {"id":{"name":"spr_paulinaBlock","path":"sprites/spr_paulinaBlock/spr_paulinaBlock.yy",},"order":0,},
     {"id":{"name":"obj_controller","path":"objects/obj_controller/obj_controller.yy",},"order":3,},
     {"id":{"name":"scr_get_character_data","path":"scripts/scr_get_character_data/scr_get_character_data.yy",},"order":0,},
@@ -51,6 +52,7 @@
   },
   "RoomOrderNodes": [
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"roomId":{"name":"Room2","path":"rooms/Room2/Room2.yy",},},
   ],
   "Folders": [
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Animation Curves","folderPath":"folders/Animation Curves.yy","order":12,},
