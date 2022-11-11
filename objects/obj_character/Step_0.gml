@@ -1,6 +1,8 @@
 /// @description Face opponent and do character action
-if hp <= 0 then room_goto_next()
-
+if hp <= 0 {
+	score = 1
+	room_goto(EndRoom)
+}
 
 if character_action == CharacterAction.None {
 	if x < opponent.x {
