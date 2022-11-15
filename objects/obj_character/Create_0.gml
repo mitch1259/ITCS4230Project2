@@ -125,6 +125,8 @@ function set_character_action(new_action) {
 				case CharacterAction.Special:
 					show_debug_message("Active action: Special");
 
+					sprite_index = sprite_idle;
+
 					if instance_exists(hitbox) {
 						instance_destroy(hitbox);
 					}
