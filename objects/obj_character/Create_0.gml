@@ -187,8 +187,8 @@ function set_character_action(new_action) {
 
 dash_time = dash_time * game_get_speed(gamespeed_fps);
 
-punch_total_time = sprite_get_number(sprite_punch) * (game_get_speed(gamespeed_fps) / sprite_get_speed(sprite_punch));
-kick_total_time = sprite_get_number(sprite_kick) * (game_get_speed(gamespeed_fps) / sprite_get_speed(sprite_kick));
+punch_total_time = floor(sprite_get_number(sprite_punch) * (game_get_speed(gamespeed_fps) / sprite_get_speed(sprite_punch)));
+kick_total_time = floor(sprite_get_number(sprite_kick) * (game_get_speed(gamespeed_fps) / sprite_get_speed(sprite_kick)));
 
 punch_stun_time = punch_stun_time * game_get_speed(gamespeed_fps);
 kick_stun_time = kick_stun_time * game_get_speed(gamespeed_fps);
