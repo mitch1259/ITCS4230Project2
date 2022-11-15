@@ -17,9 +17,17 @@ function get_character_data(character) {
 				sprite_kick: spr_lunaK,
 			};
 		case CharacterName.Sean:
-			return {};
+			return {
+				sprite_idle: spr_seanStand,
+				sprite_punch: spr_seanP,
+				sprite_kick: spr_seanK,
+				};
 		case CharacterName.Paulina:
-			return {};
+			return {
+				sprite_idle: spr_paulinaStand,
+				sprite_punch: spr_paulinaP,
+				sprite_kick: spr_paulinaK,
+				};
 		case CharacterName.Jessica:
 			return {};
 	}

@@ -1,7 +1,6 @@
 /// @description Spawn characters
-
-var player1_selection = CharacterName.Luna;
-var player2_selection = CharacterName.Luna;
+var player1_selection = obj_persistent.playerone;
+var player2_selection = obj_persistent.playertwo;
 
 var p1_data = get_character_data(player1_selection);
 var p2_data = get_character_data(player2_selection);

@@ -1,6 +1,6 @@
 /// @description Face opponent and do character action
 if hp <= 0 {
-	score = 1
+	obj_persistent.win = true
 	room_goto(EndRoom)
 }
 
