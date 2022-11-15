@@ -5,11 +5,11 @@ var player2_selection = obj_persistent.playertwo;
 var p1_data = get_character_data(player1_selection);
 var p2_data = get_character_data(player2_selection);
 
-var p1_x = (sprite_get_width(p1_data.sprite_idle) / 2) + 64;
-var p1_y = (64 * 16) - ((sprite_get_height(p1_data.sprite_idle) / 2));
+var p1_x = 64 + sprite_get_xoffset(p1_data.sprite_idle);
+var p1_y = (64 * 16) - (sprite_get_height(p1_data.sprite_idle) - sprite_get_yoffset(p1_data.sprite_idle));
 
-var p2_x = 1920 - ((sprite_get_width(p2_data.sprite_idle) / 2) + 64);
-var p2_y = (64 * 16) - ((sprite_get_height(p2_data.sprite_idle) / 2));
+var p2_x = room_width - 64 - (sprite_get_width(p2_data.sprite_idle) - sprite_get_xoffset(p2_data.sprite_idle));
+var p2_y = (64 * 16) - (sprite_get_height(p2_data.sprite_idle) - sprite_get_yoffset(p2_data.sprite_idle));
 
 player1 = instance_create_layer(p1_x, p1_y, "Instances", obj_player1, p1_data);
 
