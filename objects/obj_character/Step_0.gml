@@ -1,9 +1,4 @@
 /// @description Face opponent and do character action
-if hp <= 0 {
-	obj_persistent.win = true
-	room_goto(EndRoom)
-}
-
 if character_action == CharacterAction.None {
 	if x < opponent.x {
 		image_xscale = 1;
