@@ -3,7 +3,7 @@
 
 if room == Start {
 	
-	if obj_persistent.aiorp2 == true {
+	if obj_persistent.is_ai == true {
 		if obj_persistent.playerone == CharacterName.Paulina then obj_persistent.playertwo = CharacterName.Luna
 		if obj_persistent.playerone == CharacterName.Sean then obj_persistent.playertwo = CharacterName.Luna
 		if obj_persistent.playerone == CharacterName.Luna then obj_persistent.playertwo = CharacterName.Paulina

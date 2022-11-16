@@ -1,10 +1,10 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_aiorp2",
+  "name": "obj_isai",
   "spriteId": {
-    "name": "spr_aiorp2_unchecked",
-    "path": "sprites/spr_aiorp2_unchecked/spr_aiorp2_unchecked.yy",
+    "name": "spr_isai_unchecked",
+    "path": "sprites/spr_isai_unchecked/spr_isai_unchecked.yy",
   },
   "solid": false,
   "visible": true,
