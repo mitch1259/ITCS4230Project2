@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "obj_aiorp2",
   "spriteId": {
-    "name": "spr_aiorp2",
-    "path": "sprites/spr_aiorp2/spr_aiorp2.yy",
+    "name": "spr_aiorp2_unchecked",
+    "path": "sprites/spr_aiorp2_unchecked/spr_aiorp2_unchecked.yy",
   },
   "solid": false,
   "visible": true,
@@ -26,6 +26,7 @@
   "physicsShapePoints": [],
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":7,"eventType":6,"collisionObjectId":null,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,},
   ],
   "properties": [],
   "overriddenProperties": [],
