@@ -16,12 +16,10 @@ player1 = instance_create_layer(p1_x, p1_y, "Instances", obj_player1, p1_data);
 switch game_mode {
 	case GameMode.VsComputer:
 		player2 = instance_create_layer(p2_x, p2_y, "Instances", obj_non_playable, p2_data);
-		obj_persistent.aiorp2 = true
 		break;
 
 	case GameMode.VsPlayer:
 		player2 = instance_create_layer(p2_x, p2_y, "Instances", obj_player2, p2_data);
-		obj_persistent.aiorp2 = false
 		break;
 }
 
