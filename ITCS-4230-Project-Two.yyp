@@ -61,6 +61,7 @@
     {"id":{"name":"scr_get_character_data","path":"scripts/scr_get_character_data/scr_get_character_data.yy",},"order":0,},
     {"id":{"name":"spr_paulinaStand","path":"sprites/spr_paulinaStand/spr_paulinaStand.yy",},"order":6,},
     {"id":{"name":"obj_start","path":"objects/obj_start/obj_start.yy",},"order":0,},
+    {"id":{"name":"path_logo","path":"paths/path_logo/path_logo.yy",},"order":0,},
     {"id":{"name":"spr_block","path":"sprites/spr_block/spr_block.yy",},"order":0,},
     {"id":{"name":"Dash","path":"shaders/Dash/Dash.yy",},"order":1,},
     {"id":{"name":"spr_win","path":"sprites/spr_win/spr_win.yy",},"order":1,},
