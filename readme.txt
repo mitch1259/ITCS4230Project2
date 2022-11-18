@@ -18,8 +18,7 @@ icon. Please note that if you are playing against a CPU, your enemies
 will come in waves, so you cannot select a challenger to play against.
 
 Combos:
-Quickly pressing the left or right movement button twice results
-in a dash.
+Quickly pressing the left or right movement button twice results in a dash.
 Punching and kicking at the same time results in a special move (unimplemented)
 
 Controls:
