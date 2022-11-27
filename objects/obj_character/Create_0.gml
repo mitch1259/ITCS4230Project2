@@ -259,7 +259,10 @@ function hurt(damage) {
 /// @param {real} damage damage dealt
 function hit(damage) {
 	opponent.hurt(damage);
+	
+	//try both, maybe both together??
 	energy += energy_gain;
+	energy += damage
 }
 
 #endregion
