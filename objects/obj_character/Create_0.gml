@@ -260,9 +260,9 @@ function hurt(damage) {
 function hit(damage) {
 	opponent.hurt(damage);
 	
-	//try both, maybe both together??
 	energy += energy_gain;
 	energy += damage
+	energy = clamp(energy, 0, 1)
 }
 
 #endregion
