@@ -79,14 +79,41 @@ function current_combo_validity() {
 
 /// @desc Gets x movement from keyboard
 /// @returns {real} x movement
+
+moving = false
+
 function get_x_movement() {
 	var x_movement = 0;
 
-	if keyboard_check(move_left_key) {
+	if keyboard_check(move_left_key) and character_action != CharacterAction.Crouch {
 		x_movement -= 1;
+		sprite_index = sprite_walk
+		if image_xscale = -1 {
+			image_speed = 0.5
+		} else {
+			image_speed = -0.5
+		}
+		if moving {
+			alarm[2] += 1
+		} else {
+			alarm[2] = 2
+			moving = true
+		}
 	}
-	if keyboard_check(move_right_key) {
+	if keyboard_check(move_right_key) and character_action != CharacterAction.Crouch {
 		x_movement += 1;
+		sprite_index = sprite_walk
+		if image_xscale = 1 {
+			image_speed = 0.5
+		} else {
+			image_speed = -0.5
+		}
+		if moving {
+			alarm[2] += 1
+		} else {
+			alarm[2] = 2
+			moving = true
+		}
 	}
 
 	return x_movement;

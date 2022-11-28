@@ -35,13 +35,18 @@ function set_ai_action(new_action) {
 #region AI action: Movement
 
 /// @desc Do nothing
-function do_nothing() {}
+function do_nothing() {
+	sprite_index = sprite_idle
+}
 
 /// @desc Move towards `opponent`
 function move_towards() {
 	var x_movement = sign(opponent.x - x);
 
 	hspeed = x_movement * move_speed;
+	
+	sprite_index = sprite_walk
+	image_speed = 0.5
 }
 
 /// @desc Move away from `opponent`
@@ -52,6 +57,9 @@ function move_away() {
 		// If at the same location as the opponent, move right
 		x_movement = 1;
 	}
+
+	sprite_index = sprite_walk
+	image_speed = -0.5
 
 	hspeed = x_movement * move_speed;
 

@@ -166,6 +166,13 @@ function set_character_action(new_action) {
 					show_debug_message("Active action: Dash");
 
 					hspeed = sign(hspeed) * dash_speed;
+					
+					if (sign(hspeed) == 1 and image_xscale == 1) or (sign(hspeed) == -1 and image_xscale == -1) {
+						sprite_index = sprite_dashF
+					} else {
+						sprite_index = sprite_dashB
+					}
+					
 					vspeed = 0;
 					gravity = 0;
 
