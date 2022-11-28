@@ -89,9 +89,9 @@ function get_x_movement() {
 		x_movement -= 1;
 		sprite_index = sprite_walk
 		if image_xscale = -1 {
-			image_speed = 0.5
+			image_speed = walk_speed
 		} else {
-			image_speed = -0.5
+			image_speed = -walk_speed
 		}
 		if moving {
 			alarm[2] += 1
@@ -104,9 +104,9 @@ function get_x_movement() {
 		x_movement += 1;
 		sprite_index = sprite_walk
 		if image_xscale = 1 {
-			image_speed = 0.5
+			image_speed = walk_speed
 		} else {
-			image_speed = -0.5
+			image_speed = -walk_speed
 		}
 		if moving {
 			alarm[2] += 1

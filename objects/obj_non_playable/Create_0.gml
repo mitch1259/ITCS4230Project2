@@ -46,7 +46,7 @@ function move_towards() {
 	hspeed = x_movement * move_speed;
 	
 	sprite_index = sprite_walk
-	image_speed = 0.5
+	image_speed = walk_speed
 }
 
 /// @desc Move away from `opponent`
@@ -59,7 +59,7 @@ function move_away() {
 	}
 
 	sprite_index = sprite_walk
-	image_speed = -0.5
+	image_speed = -walk_speed
 
 	hspeed = x_movement * move_speed;
 
