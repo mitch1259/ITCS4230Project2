@@ -62,6 +62,7 @@
     {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"sprite_kick","varType":5,"value":"noone","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[
         "GMSprite",
       ],},
+    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"sprite_walk","varType":5,"value":"noone","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],},
   ],
   "overriddenProperties": [],
   "parent": {
