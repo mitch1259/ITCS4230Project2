@@ -98,6 +98,9 @@ enum CharacterAction {
 	Kick,
 	Dash,
 	Special,
+	Crouch,
+	Walk,
+	Jump,
 }
 
 /// @desc Transition between character actions
