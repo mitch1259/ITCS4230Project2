@@ -14,7 +14,7 @@ switch location_state {
 			sprite_index = sprite_jump
 			alarm[0] = 30
 			set_location_state(LocationState.Air);
-			set_character_action(CharacterAction.Jump)
+			//set_character_action(CharacterAction.Jump)
 		}
 		if keyboard_check(crouch_key) {
 			sprite_index = sprite_crouch
