@@ -2,32 +2,52 @@
 
 event_inherited();
 
-if character_action != CharacterAction.None {
-	exit;
+switch character_action {
+	case CharacterAction.None:
+	case CharacterAction.Crouch:
+	case CharacterAction.Jump:
+	case CharacterAction.Walk:
+		break;
+	default:
+		exit;
 }
 
 switch location_state {
 	case LocationState.Ground:
-		// Set speed
 		if keyboard_check(jump_key) {
 			vspeed -= jump_force;
-			sprite_index = sprite_jump
-			alarm[0] = 30
+			set_character_action(CharacterAction.Jump);
 			set_location_state(LocationState.Air);
-			//set_character_action(CharacterAction.Jump)
+			break;
 		}
-		if keyboard_check(crouch_key) {
-			sprite_index = sprite_crouch
-			alarm[0] = 1
-			set_character_action(CharacterAction.Crouch)
-			
+
+		if character_action != CharacterAction.Crouch and keyboard_check(crouch_key) {
+			// If started crouching
+			set_character_action(CharacterAction.Crouch);
+		} else if character_action == CharacterAction.Crouch and !keyboard_check(crouch_key) {
+			// If stopped crouching
+			set_character_action(CharacterAction.None);
 		}
-		hspeed = get_x_movement() * move_speed;
+
+		if character_action != CharacterAction.Crouch {
+			hspeed = get_x_movement() * move_speed;
+
+			if hspeed > 0 {
+				set_character_action(CharacterAction.Walk);
+				image_speed = walk_speed * image_xscale;
+			} else if hspeed < 0 {
+				set_character_action(CharacterAction.Walk);
+				image_speed = -walk_speed * image_xscale;
+			} else if /* hspeed == 0 and */ character_action == CharacterAction.Walk {
+				set_character_action(CharacterAction.None);
+			}
+		}
 
 		// Manage collisions
 		horizontal_collision();
 		if !place_meeting(x, y + 1, obj_block) {
 			set_location_state(LocationState.Air);
+			break;
 		}
 		break;
 
@@ -35,7 +55,6 @@ switch location_state {
 		// Set speed
 		vspeed = clamp(vspeed, -max_vspeed, max_vspeed);
 		hspeed = get_x_movement() * move_speed;
-		if sprite_index != sprite_jump then sprite_index = sprite_idle
 
 		// Manage collisions
 		horizontal_collision();

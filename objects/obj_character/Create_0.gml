@@ -23,6 +23,11 @@ function set_location_state(state) {
 
 			vspeed = 0;
 			gravity = 0;
+
+			if character_action == CharacterAction.Jump {
+				set_character_action(CharacterAction.None);
+			}
+
 			location_state = LocationState.Ground;
 			break;
 		case LocationState.Air:
@@ -108,9 +113,27 @@ enum CharacterAction {
 function set_character_action(new_action) {
 	// Nested switches can be read as "Switch from `character_action` to `new_action`"
 	switch character_action {
+		case CharacterAction.Walk:
+			image_speed = 1;
+		case CharacterAction.Jump:
+		case CharacterAction.Crouch:
+			switch new_action {
+				case CharacterAction.None:
+					sprite_index = sprite_idle;
+					break;
+
+				default:
+					character_action = CharacterAction.None;
+					set_character_action(new_action);
+					return;
+			}
+			break;
+
 		case CharacterAction.Dash:
 			switch new_action {
 				case CharacterAction.None:
+					sprite_index = sprite_idle;
+
 					if location_state == LocationState.Air {
 						gravity = gravity_force;
 					}
@@ -183,6 +206,19 @@ function set_character_action(new_action) {
 
 				case CharacterAction.Special:
 					show_debug_message("Active action: Special");
+					break;
+
+				case CharacterAction.Crouch:
+					sprite_index = sprite_crouch;
+					hspeed = 0;
+					break;
+
+				case CharacterAction.Walk:
+					sprite_index = sprite_walk;
+					break;
+
+				case CharacterAction.Jump:
+					sprite_index = sprite_jump;
 					break;
 			}
 			break;

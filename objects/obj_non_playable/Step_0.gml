@@ -7,8 +7,14 @@ if hp <= 0 {
 
 event_inherited();
 
-if character_action != CharacterAction.None {
-	exit;
+switch character_action {
+	case CharacterAction.None:
+	case CharacterAction.Crouch:
+	case CharacterAction.Jump:
+	case CharacterAction.Walk:
+		break;
+	default:
+		exit;
 }
 
 switch ai_action {

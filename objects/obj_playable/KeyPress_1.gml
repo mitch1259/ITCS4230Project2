@@ -1,7 +1,9 @@
 /// @description Check combo
 
-if character_action != CharacterAction.None and character_action != CharacterAction.Punch and character_action != CharacterAction.Kick {
-	exit;
+switch character_action {
+	case CharacterAction.Dash:
+	case CharacterAction.Special:
+		exit;
 }
 
 var is_valid_key = false;

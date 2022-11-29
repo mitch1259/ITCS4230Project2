@@ -3,4 +3,7 @@
 show_debug_message("Action finished");
 
 set_character_action(CharacterAction.None);
-sprite_index = sprite_idle
+
+if location_state == LocationState.Air {
+	set_character_action(CharacterAction.Jump);
+}
