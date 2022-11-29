@@ -1,3 +1,29 @@
 Visuals: 
 
 All Sprites, Tiles, Backgrounds, Buttons, and other art made by Chris Allard (2022).
+
+Sounds: 
+
+W_1 Wave by Yarmonics (CC0 - freesound.org)
+https://freesound.org/people/Yarmonics/sounds/441852/
+
+Damage sound effect by Raclure (CC0 - freesound.org)
+https://freesound.org/people/Raclure/sounds/458867/
+
+Attack - Kick by elynch0901 (CC0 - freesound.org)
+https://freesound.org/people/elynch0901/sounds/464501/
+
+Video game music loop by Katageni (CC0 - freesound.org)
+https://freesound.org/people/Kagateni/sounds/518584/
+
+Fighting Game Hit Sound by grizzlymittz (CC0 - freesound.org)
+https://freesound.org/people/grizzlymittz/sounds/529942/
+
+ChargeAttack by grizzlymittz (CC0 - freesound.org)
+https://freesound.org/people/grizzlymittz/sounds/535239/
+
+fighting music by ShortRecord (CC-BY - freesound.org)
+https://freesound.org/people/ShortRecord/sounds/548619/
+
+Light Mister - Dark Wave by LightMister (CC-BY - freesound.org)
+https://freesound.org/people/LightMister/sounds/644819/
