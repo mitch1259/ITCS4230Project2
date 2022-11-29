@@ -1,6 +1,7 @@
 Visuals: 
 
-All Sprites, Tiles, Backgrounds, Buttons, and other art made by Chris Allard (2022).
+Bar Fight Background made by Ilhan Hutchinson (2022).
+All other Sprites, Tiles, Backgrounds, Buttons, and other art made by Chris Allard (2022).
 
 Sounds: 
 
