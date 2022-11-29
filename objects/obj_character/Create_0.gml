@@ -263,6 +263,16 @@ hitbox = noone;
 /// @param {real} damage damage dealt
 function hurt(damage) {
 	hp -= damage;
+	
+	if damage == punch_damage {
+		audio_play_sound(snd_attack2, 10, false)
+	} else if damage == kick_damage {
+		audio_play_sound(snd_attack1, 9, false)
+	} else if damage == special_damage {
+		audio_play_sound(snd_attack3, 8, false)
+	}
+	
+	alarm[3] = game_get_speed(gamespeed_fps)/5
 }
 
 /// @desc Deal damage to opponent and increase energy
