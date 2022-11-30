@@ -298,8 +298,12 @@ hitbox = noone;
 /// @desc Deal damage to `self`
 /// @param {real} damage damage dealt
 function hurt(damage) {
-	hp -= damage;
-	
+	if character_action == CharacterAction.Crouch {
+		damage = damage * 0.5;
+	}
+
+	hp -= damage
+
 	if damage == punch_damage {
 		audio_play_sound(snd_attack2, 10, false)
 	} else if damage == kick_damage {
