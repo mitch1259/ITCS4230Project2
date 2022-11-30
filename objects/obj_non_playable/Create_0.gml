@@ -4,6 +4,24 @@ event_inherited();
 
 alarm[1] = 1.0 * game_get_speed(gamespeed_fps);
 
+#region Macros
+
+#macro PUNCH_X (x + (image_xscale * punch_x_offset))
+#macro PUNCH_Y (y + (image_yscale * punch_y_offset))
+#macro PUNCH_X1 (PUNCH_X - (punch_width / 2))
+#macro PUNCH_Y1 (PUNCH_Y - (punch_height / 2))
+#macro PUNCH_X2 (PUNCH_X + (punch_width / 2))
+#macro PUNCH_Y2 (PUNCH_Y + (punch_height / 2))
+	
+#macro KICK_X (x + (image_xscale * kick_x_offset))
+#macro KICK_Y (y + (image_yscale * kick_y_offset))
+#macro KICK_X1 (KICK_X - (kick_width / 2))
+#macro KICK_Y1 (KICK_Y - (kick_height / 2))
+#macro KICK_X2 (KICK_X + (kick_width / 2))
+#macro KICK_Y2 (KICK_Y + (kick_height / 2))
+
+#endregion
+
 #region AI action
 
 ai_action = AiAction.DoNothing;
@@ -12,6 +30,9 @@ enum AiAction {
 	DoNothing,
 	MoveTowards,
 	MoveAway,
+	Attack,
+	DashTowards,
+	DashAway,
 }
 
 /// @desc Transition between action states
@@ -23,13 +44,25 @@ function set_ai_action(new_action) {
 			sprite_index = sprite_idle;
 			image_speed = 1;
 			break;
+
 		case AiAction.MoveTowards:
-			sprite_index = sprite_walk;
+			set_character_action(CharacterAction.Walk);
 			image_speed = walk_speed;
 			break;
+
 		case AiAction.MoveAway:
-			sprite_index = sprite_walk;
+			set_character_action(CharacterAction.Walk);
 			image_speed = -walk_speed;
+			break;
+
+		case AiAction.DashTowards:
+			move_towards();
+			set_character_action(CharacterAction.Dash);
+			break;
+
+		case AiAction.DashAway:
+			move_away();
+			set_character_action(CharacterAction.Dash);
 			break;
 	}
 
