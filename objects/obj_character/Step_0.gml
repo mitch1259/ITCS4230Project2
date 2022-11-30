@@ -1,5 +1,5 @@
 /// @description Face opponent and do character action
-if character_action == CharacterAction.None {
+if character_action != CharacterAction.Dash or character_action != CharacterAction.Special {
 	if x < opponent.x {
 		image_xscale = 1;
 	} else {
