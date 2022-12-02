@@ -211,6 +211,7 @@ function set_character_action(new_action) {
 				case CharacterAction.Crouch:
 					sprite_index = sprite_crouch;
 					hspeed = 0;
+					alarm[4] = 2
 					break;
 
 				case CharacterAction.Walk:

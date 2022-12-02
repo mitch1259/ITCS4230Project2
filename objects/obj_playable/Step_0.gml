@@ -21,7 +21,7 @@ switch location_state {
 			break;
 		}
 
-		if character_action != CharacterAction.Crouch and keyboard_check(crouch_key) {
+		if character_action != CharacterAction.Crouch and keyboard_check(crouch_key) and energy > 0 {
 			// If started crouching
 			set_character_action(CharacterAction.Crouch);
 		} else if character_action == CharacterAction.Crouch and !keyboard_check(crouch_key) {
