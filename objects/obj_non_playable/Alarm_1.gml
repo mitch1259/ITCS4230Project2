@@ -18,17 +18,32 @@ if location_state != LocationState.Air and random(1.0) < 0.10 {
 if collision_rectangle(PUNCH_X1, PUNCH_Y1, PUNCH_X2, PUNCH_Y2, opponent, false, true) != noone {
 	// If opponent is in range
 
-	// (attack_random < a + (b..c)): action has probability of 'a' and 'b..c' is sum of prior probabilities
-	if random_val < 0.10 {
-		set_ai_action(AiAction.DashAway);
-	} else if random_val < 0.40 + (0.10) {
-		set_ai_action(AiAction.MoveAway);
-	} else if random_val < 0.30 + (0.40 + 0.10) {
-		set_ai_action(AiAction.Attack);
-		set_character_action(CharacterAction.Punch);
-	} else if random_val < 0.20 + (0.30 + 0.40 + 0.10) {
-		set_ai_action(AiAction.Attack);
-		set_character_action(CharacterAction.Kick);
+	if place_meeting(x + move_speed, y, obj_block) or place_meeting(x - move_speed, y, obj_block) {
+		// If trapped between player and wall
+		if energy <= 0.5 {
+			// Use special
+		} else {
+			if random_val < 0.50 {
+				set_ai_action(AiAction.Attack);
+				set_character_action(CharacterAction.Punch);
+			} else {
+				set_ai_action(AiAction.Attack);
+				set_character_action(CharacterAction.Kick);
+			}
+		}
+	} else {
+		// (attack_random < a + (b..c)): action has probability of 'a' and 'b..c' is sum of prior probabilities
+		if random_val < 0.10 {
+			set_ai_action(AiAction.DashAway);
+		} else if random_val < 0.40 + (0.10) {
+			set_ai_action(AiAction.MoveAway);
+		} else if random_val < 0.30 + (0.40 + 0.10) {
+			set_ai_action(AiAction.Attack);
+			set_character_action(CharacterAction.Punch);
+		} else if random_val < 0.20 + (0.30 + 0.40 + 0.10) {
+			set_ai_action(AiAction.Attack);
+			set_character_action(CharacterAction.Kick);
+		}
 	}
 } else {
 	if random_val < 0.40 {
