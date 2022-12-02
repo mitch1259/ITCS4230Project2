@@ -2,6 +2,10 @@
 
 event_inherited();
 
+punch_damage = punch_damage * obj_persistent.round_cur
+kick_damage = kick_damage * obj_persistent.round_cur
+special_damage = special_damage * obj_persistent.round_cur
+
 alarm[1] = 1.0 * game_get_speed(gamespeed_fps);
 
 #region Macros
