@@ -157,8 +157,22 @@ function set_character_action(new_action) {
 						instance_destroy(hitbox);
 					}
 					hitbox = noone;
+
+					sprite_index = sprite_special;
+					hspeed = 0;
+					energy -= 0.5
+
+					vertical_collision();
+
+					alarm[0] = special_total_time;
 					break;
 				}
+			break;
+
+		case CharacterAction.Special:
+			if new_action == CharacterAction.None {
+				sprite_index = sprite_idle;
+			}
 			break;
 
 		case CharacterAction.None:
@@ -204,10 +218,6 @@ function set_character_action(new_action) {
 					alarm[0] = dash_time;
 					break;
 
-				case CharacterAction.Special:
-					show_debug_message("Active action: Special");
-					break;
-
 				case CharacterAction.Crouch:
 					sprite_index = sprite_crouch;
 					hspeed = 0;
@@ -239,6 +249,28 @@ kick_total_time = floor(sprite_get_number(sprite_kick) * (game_get_speed(gamespe
 
 punch_stun_time = punch_stun_time * game_get_speed(gamespeed_fps);
 kick_stun_time = kick_stun_time * game_get_speed(gamespeed_fps);
+
+if sprite_special == sprite_punch {
+	special_active_frame = punch_active_frame;
+	special_recovery_frame = punch_recovery_frame;
+	special_stun_time = punch_stun_time;
+	special_height = punch_height;
+	special_width = punch_width;
+	special_x_offset = punch_x_offset;
+	special_y_offset = punch_y_offset;
+
+	special_total_time = punch_total_time;
+} else if sprite_special == sprite_kick {
+	special_active_frame = kick_active_frame;
+	special_recovery_frame = kick_recovery_frame;
+	special_stun_time = kick_stun_time;
+	special_height = kick_height;
+	special_width = kick_width;
+	special_x_offset = kick_x_offset;
+	special_y_offset = kick_y_offset;
+
+	special_total_time = kick_total_time;
+}
 
 /// @desc Run punch action
 function punch() {
@@ -287,7 +319,22 @@ function dash() {
 
 /// @desc Run special action
 function special() {
-	alarm[0] = 1; // Instantly finish (until implemented)
+	vertical_collision();
+
+	var time_elapsed = special_total_time - alarm[0];
+
+	if time_elapsed == punch_active_frame {
+		// If start up is finished, activate punch
+		hitbox = instance_create_layer(0, 0, "Instances", obj_hitbox,
+			{parent: id, damage: special_damage, x_offset: special_x_offset, y_offset: special_y_offset, height: special_height, width: special_width}
+		);
+	} else if time_elapsed == special_recovery_frame {
+		// If punch is finished and player is in recovery
+		if instance_exists(hitbox) {
+			instance_destroy(hitbox);
+		}
+		hitbox = noone;
+	}
 }
 
 #endregion
@@ -320,10 +367,12 @@ function hurt(damage) {
 /// @param {real} damage damage dealt
 function hit(damage) {
 	opponent.hurt(damage);
-	
-	energy += energy_gain;
-	energy += damage
-	energy = clamp(energy, 0, 1)
+
+	if character_action != CharacterAction.Special {
+		energy += energy_gain;
+		energy += damage
+		energy = clamp(energy, 0, 1)
+	}
 }
 
 #endregion

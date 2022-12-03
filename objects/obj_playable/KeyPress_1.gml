@@ -13,7 +13,7 @@ var is_valid_key = false;
 if keyboard_check_pressed(action1_key) {
 	//show_debug_message("Key pressed: Action 1");
 
-	if character_action != CharacterAction.Punch {
+	if character_action != CharacterAction.Punch and character_action != CharacterAction.Kick {
 		set_character_action(CharacterAction.Punch);
 	}
 
@@ -24,7 +24,7 @@ if keyboard_check_pressed(action1_key) {
 if keyboard_check_pressed(action2_key) {
 	//show_debug_message("Key pressed: Action 2");
 
-	if character_action != CharacterAction.Kick {
+	if character_action != CharacterAction.Kick and character_action != CharacterAction.Punch {
 		set_character_action(CharacterAction.Kick);
 	}
 
@@ -61,6 +61,10 @@ if is_valid_key and current_combo_idx == array_length(current_combo) {
 	}
 
 	clear_current_combo();
+
+	if action == CharacterAction.Special and energy < 0.5 {
+		exit;
+	}
 
 	hspeed = get_x_movement();
 	set_character_action(action);

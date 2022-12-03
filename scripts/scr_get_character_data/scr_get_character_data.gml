@@ -20,6 +20,7 @@ function get_character_data(character) {
 				sprite_dashB: spr_lunaDashB,
 				sprite_dashF: spr_lunaDashF,
 				sprite_jump: spr_lunaJump,
+				sprite_special: spr_lunaP,
 			};
 		case CharacterName.Sean:
 			return {
@@ -31,6 +32,7 @@ function get_character_data(character) {
 				sprite_dashB: spr_seanDashB,
 				sprite_dashF: spr_seanDashF,
 				sprite_jump: spr_seanJump,
+				sprite_special: spr_seanP,
 				};
 		case CharacterName.Paulina:
 			return {
@@ -42,6 +44,7 @@ function get_character_data(character) {
 				sprite_dashB: spr_paulinaDashB,
 				sprite_dashF: spr_paulinaDashF,
 				sprite_jump: spr_paulinaJump,
+				sprite_special: spr_paulinaK,
 				};
 		case CharacterName.Jessica:
 			return {};
