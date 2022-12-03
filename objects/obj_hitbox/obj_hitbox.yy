@@ -4,7 +4,7 @@
   "name": "obj_hitbox",
   "spriteId": null,
   "solid": false,
-  "visible": true,
+  "visible": false,
   "managed": true,
   "spriteMaskId": null,
   "persistent": false,
