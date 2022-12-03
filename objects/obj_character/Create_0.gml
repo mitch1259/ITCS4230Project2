@@ -199,6 +199,19 @@ function set_character_action(new_action) {
 					alarm[0] = kick_total_time;
 					break;
 
+				case CharacterAction.Special:
+					show_debug_message("Active action: Special");
+
+					sprite_index = sprite_idle;
+					sprite_index = sprite_special;
+					hspeed = 0;
+					energy -= 0.5;
+
+					vertical_collision();
+
+					alarm[0] = special_total_time;
+					break;
+
 				case CharacterAction.Dash:
 					show_debug_message("Active action: Dash");
 

@@ -29,5 +29,17 @@ switch ai_action {
 		break;
 }
 
-horizontal_collision();
-vertical_collision();
+switch location_state {
+	case LocationState.Ground:
+		horizontal_collision();
+		if !place_meeting(x, y + 1, obj_block) {
+			set_location_state(LocationState.Air);
+			break;
+		}
+		break;
+	case LocationState.Air:
+		horizontal_collision();
+		vertical_collision();
+		break;
+}
+
