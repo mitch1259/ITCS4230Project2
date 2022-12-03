@@ -32,12 +32,12 @@ if keyboard_check_pressed(action2_key) {
 	is_valid_key = true;
 }
 
-if keyboard_check_pressed(action3_key) {
-	//show_debug_message("Key pressed: Action 3");
+//if keyboard_check_pressed(action3_key) {
+//	//show_debug_message("Key pressed: Action 3");
 
-	add_to_combo(ComboKey.Action3);
-	is_valid_key = true;
-}
+//	add_to_combo(ComboKey.Action3);
+//	is_valid_key = true;
+//}
 
 if keyboard_check_pressed(move_left_key) {
 	add_to_combo(ComboKey.Left);
